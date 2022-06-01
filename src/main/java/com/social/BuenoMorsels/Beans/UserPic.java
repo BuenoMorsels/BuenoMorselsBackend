@@ -4,24 +4,22 @@ import javax.persistence.*;
 
 @Entity
 @Table
-public class Restaurant {
+public class UserPic {
 
 	@Id
-	@Column(name="restaurant_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int restaurantId;
-	
 	@Column
-	private String title;
-	
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int imageId;
+
+	@Column(name="image_url")
+	private String imageURL;
+	@Column
+	private int userId;
 	@Column
 	private String description;
-	
-	@Column(name="post_id")
-	private int postId;
-	
-	
+	@Column
+	private boolean like;
+
 
 	
 }
