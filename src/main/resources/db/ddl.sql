@@ -21,6 +21,11 @@ CREATE TABLE user_role (
     role_name VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE user_pic (
+    user_pic_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
+    user_pic_url VARCHAR(500) NOT NULL
+);
+
 CREATE TABLE meal (
     meal_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
     title VARCHAR(50),    
@@ -30,6 +35,11 @@ CREATE TABLE meal (
     meal_rating INTEGER NOT NULL,
     meal_pic_id INTEGER NOT NULL REFERENCES meal_pic,
     sent_at TIMESTAMP WITHOUT TIME ZONE NOT NULL
+);
+
+CREATE TABLE meal_pic (
+    meal_pic_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
+    meal_pic_url VARCHAR(500) NOT NULL
 );
 
 CREATE TABLE restaurant (
@@ -43,7 +53,7 @@ CREATE TABLE restaurant (
 CREATE TABLE meal_likes (
     liked BOOL NOT NULL,
     user_id INTEGER NOT NULL REFERENCES usr,
-    post_id INTEGER NOT NULL REFERENCES post
+    meal_id INTEGER NOT NULL REFERENCES meal
 );
 
 

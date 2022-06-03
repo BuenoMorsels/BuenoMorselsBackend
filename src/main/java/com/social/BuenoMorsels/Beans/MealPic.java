@@ -9,18 +9,14 @@ public class MealPic {
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int imageId;
-	
-	@Column(name="image_url")
-	private String imageURL;
-	@Column
-	private int userId;
-	@Column
-	private String description;
-	@Column
-	private boolean like;
-	
-	
+	private int mealPicId;
+	private String mealPicURL;
 
-	
+	public MealPic() {
+		//TODO
+	}
+
+
+
+
 }

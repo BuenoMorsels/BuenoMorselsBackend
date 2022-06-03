@@ -9,16 +9,14 @@ public class UserPic {
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int imageId;
+	private int userPicId;
+	private String userPicURL;
 
-	@Column(name="image_url")
-	private String imageURL;
-	@Column
-	private int userId;
-	@Column
-	private String description;
-	@Column
-	private boolean like;
+	public UserPic() {
+		//TODO
+	}
+
+
 
 
 	
