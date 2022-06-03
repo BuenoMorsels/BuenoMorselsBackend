@@ -16,14 +16,18 @@ CREATE TABLE usr (
     meal_id INTEGER NOT NULL REFERENCES meal
 );
 
-CREATE TABLE post (
-    post_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
+CREATE TABLE user_role (
+    role_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
+    role_name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE meal (
+    meal_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
     title VARCHAR(50),    
     user_id INTEGER NOT NULL REFERENCES usr,
-    meal_id INTEGER NOT NULL REFERENCES meal,
     restaurant_id INTEGER NOT NULL REFERENCES restaurant,
-    post_text VARCHAR(500),
-    post_rating INTEGER NOT NULL,
+    meal_text VARCHAR(500),
+    meal_rating INTEGER NOT NULL,
     meal_pic_id INTEGER NOT NULL REFERENCES meal_pic,
     sent_at TIMESTAMP WITHOUT TIME ZONE NOT NULL
 );
@@ -36,19 +40,12 @@ CREATE TABLE restaurant (
     cusine VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE post_likes (
+CREATE TABLE meal_likes (
     liked BOOL NOT NULL,
     user_id INTEGER NOT NULL REFERENCES usr,
     post_id INTEGER NOT NULL REFERENCES post
 );
 
-CREATE TABLE rol (  --role?
-
-);
-
-CREATE TABLE meal (
-
-);
 
 --CREATE TABLE public.user_comment (
 --    id integer NOT NULL,
