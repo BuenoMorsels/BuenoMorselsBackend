@@ -10,19 +10,67 @@ public class MealLikes {
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
+	@EmbeddedId
+	private MealLikesId mealLikesId;	
+	
 	private boolean liked;
 
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	private User user;
-
-	@ManyToOne
-	@JoinColumn(name="meal_id")
-	private Meal meal;
 
 	public MealLikes() {
-		//TODO
+		super();
 	}
+
+
+	public MealLikes(MealLikesId mealLikesId, boolean liked) {
+		super();
+		this.mealLikesId = mealLikesId;
+		this.liked = liked;
+	}
+
+
+	public MealLikesId getMealLikesId() {
+		return mealLikesId;
+	}
+
+
+	public void setMealLikesId(MealLikesId mealLikesId) {
+		this.mealLikesId = mealLikesId;
+	}
+
+
+	public boolean isLiked() {
+		return liked;
+	}
+
+
+	public void setLiked(boolean liked) {
+		this.liked = liked;
+	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(liked, mealLikesId);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MealLikes other = (MealLikes) obj;
+		return liked == other.liked && Objects.equals(mealLikesId, other.mealLikesId);
+	}
+
+
+	@Override
+	public String toString() {
+		return "MealLikes [mealLikesId=" + mealLikesId + ", liked=" + liked + "]";
+	}
+	
 	
 }

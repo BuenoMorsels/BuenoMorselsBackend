@@ -18,7 +18,7 @@ import com.social.BuenoMorsels.Beans.Restaurant;
 import com.social.BuenoMorsels.Services.RestaurantService;
 
 @RestController
-@RequestMapping(path = "/restaurant")
+@RequestMapping(path = "/api/v1/restaurant")
 @CrossOrigin(origins = "http://localhost:4200")
 public class RestaurantController {
 

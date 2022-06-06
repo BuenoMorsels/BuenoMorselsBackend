@@ -1,5 +1,7 @@
 package com.social.BuenoMorsels.Beans;
 
+import java.util.Objects;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,7 +15,35 @@ public class MealPic {
 	private String mealPicURL;
 
 	public MealPic() {
-		//TODO
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "MealPic [mealPicId=" + mealPicId + ", mealPicURL=" + mealPicURL + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(mealPicId, mealPicURL);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MealPic other = (MealPic) obj;
+		return mealPicId == other.mealPicId && Objects.equals(mealPicURL, other.mealPicURL);
+	}
+
+	public MealPic(int mealPicId, String mealPicURL) {
+		super();
+		this.mealPicId = mealPicId;
+		this.mealPicURL = mealPicURL;
 	}
 
 
